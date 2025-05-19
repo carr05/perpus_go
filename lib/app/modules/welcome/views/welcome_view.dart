@@ -22,6 +22,7 @@ class WelcomeView extends GetView<WelcomeController> {
               'SELAMAT DATANG !',
               style: TextStyle(
                 fontSize: 25,
+                fontFamily: 'fredoka',
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF1D2951),
               ),
@@ -31,7 +32,7 @@ class WelcomeView extends GetView<WelcomeController> {
             Text(
               'Aplikasi Perpustakaan Online ini dirancang untuk memberikan solusi digital yang praktis dalam mengelola koleksi buku, pencarian, peminjaman, serta pengembalian secara efisien dan terintegrasi.',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, color: Colors.black87),
+              style: TextStyle(fontSize: 16,fontFamily: 'fredoka', color: Colors.black87),
             ),
             SizedBox(height: 30),
             ElevatedButton(
@@ -43,7 +44,7 @@ class WelcomeView extends GetView<WelcomeController> {
               onPressed: () {
                 Get.toNamed(Routes.LOGIN);
               },
-              child: Text('Mulai Sekarang!', style: TextStyle(fontSize: 16, color: Color(0xFFF7F8FC) )),
+              child: Text('Mulai Sekarang!', style: TextStyle(fontSize: 16,fontFamily: 'fredoka', color: Color(0xFFF7F8FC) )),
             ),
           ],
         ),

@@ -21,7 +21,16 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  fonts:
+    - family: fredoka
+    - family: nunito
+      fonts:
+        - asset: assets/fonts/static/Fredoka-Regular.ttf
+        - asset: assets/fonts/static/Fredoka-Bold.ttf
+        - asset: asset/fonts/static/Nunito-regular.ttf
+        
+
+
   assets:
-    - assets/images/logo-splash.png
-    - assets/images/reading.png
-    - assets/images/login.png
+    - assets/images/
+    - assets/icon/
