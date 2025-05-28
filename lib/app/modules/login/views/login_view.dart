@@ -10,108 +10,105 @@ class LoginView extends GetView<LoginController> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 60),
         child: Column(
           children: [
-            SizedBox(height: 83),
             Image.asset(
-              'assets/images/login.png',
-              height: 270,
+              'assets/images/logn.png',
+              height: 180,
             ),
-            Container(
-              padding: EdgeInsets.all(45),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-                color: Color(0xFF3E6D9C),
+            SizedBox(height: 30),
+            // Judul
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Login',
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'fredoka',
+                  color: Colors.black,
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Selamat Datang Kembali',
-                    style: TextStyle(
-                      fontFamily: 'fredoka',
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+            ),
+            SizedBox(height: 24),
+            // Input email
+            _buildInputField(
+              iconPath: 'assets/icon/person.png',
+              hintText: 'Nama Pengguna',
+              controller: controller.emailController,
+            ),
+            SizedBox(height: 16),
+            // Input password dengan "Forgot?"
+            Stack(
+              children: [
+                _buildInputField(
+                  iconPath: 'assets/icon/password.png',
+                  hintText: 'Password',
+                  controller: controller.passwordController,
+                  obscure: true,
+                  
+                ),
+                
+              ],
+            ),
+            SizedBox(height: 24),
+            // Tombol login
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: controller.login,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF0A0A63),
+                  padding: EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                child: Text(
+                  'Login',
+                  style: TextStyle(
                       color: Colors.white,
+                      fontSize: 18,
+                      fontFamily: 'fredoka'),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'atau login dengan...',
+              style: TextStyle(color: Colors.black54),
+            ),
+            SizedBox(height: 16),
+            // Tombol sosial
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildSocialIcon('assets/icon/google.png'),
+                SizedBox(width: 16),
+                _buildSocialIcon('assets/icon/facebook.png'),
+                SizedBox(width: 16),
+                _buildSocialIcon('assets/icon/tweeter.png'),
+              ],
+            ),
+            SizedBox(height: 24),
+            // Daftar
+            RichText(
+              text: TextSpan(
+                text: 'Belum Memiliki akun? ',
+                style: TextStyle(color: Colors.black),
+                children: [
+                  TextSpan(
+                    text: 'Daftar Sekarang',
+                    style: TextStyle(
+                      color: Color(0xFF3E6D9C),
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
                     ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Mari masuk untuk menjelajah terus',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  SizedBox(height: 20),
-                  _buildInputField(
-                    iconPath: 'assets/icon/person.png',
-                    hintText: 'Nama Pengguna',
-                    controller: controller.emailController,
-                  ),
-                  SizedBox(height: 16),
-                  _buildInputField(
-                    iconPath: 'assets/icon/password.png',
-                    hintText: 'Password',
-                    controller: controller.passwordController,
-                    obscure: true,
-                    suffixIconPath: 'assets/icon/mata.png',
-                  ),
-                  SizedBox(height: 24),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: controller.login,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF0A0A63),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 80, vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                      child: Text('Login',
-                          style: TextStyle(color: Colors.white)),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Center(
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Belum Memiliki akun? ',
-                        style: TextStyle(color: Colors.white),
-                        children: [
-                          TextSpan(
-                            text: 'Daftar Sekarang',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Get.toNamed(Routes.REGISTER);
-                              },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Divider(color: Colors.white70),
-                  SizedBox(height: 10),
-                  Center(
-                    child: Text(
-                      'Login dengan',
-                      style: TextStyle(color: Colors.white70),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _buildSocialIcon('assets/icon/google.png'),
-                      SizedBox(width: 25),
-                      _buildSocialIcon('assets/icon/facebook.png'),
-                      SizedBox(width: 25),
-                      _buildSocialIcon('assets/icon/tweeter.png'),
-                    ],
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Get.toNamed(Routes.REGISTER);
+                      },
                   ),
                 ],
               ),
@@ -146,8 +143,8 @@ class LoginView extends GetView<LoginController> {
             : null,
         hintText: hintText,
         filled: true,
-        fillColor: Colors.white,
-        contentPadding: EdgeInsets.symmetric(vertical: 16),
+        fillColor: Colors.grey[100],
+        contentPadding: EdgeInsets.symmetric(vertical: 18),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,
@@ -156,11 +153,11 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
-  /// Social Icon Widget
+  /// Social Icon
   Widget _buildSocialIcon(String assetPath) {
     return Container(
-      width: 45,
-      height: 45,
+      width: 50,
+      height: 50,
       decoration: BoxDecoration(
         color: Colors.white,
         shape: BoxShape.circle,
@@ -172,11 +169,8 @@ class LoginView extends GetView<LoginController> {
           ),
         ],
       ),
-      padding: EdgeInsets.all(8),
-      child: Image.asset(
-        assetPath,
-        fit: BoxFit.contain,
-      ),
+      padding: EdgeInsets.all(10),
+      child: Image.asset(assetPath),
     );
   }
 }

@@ -13,26 +13,26 @@ class WelcomeView extends GetView<WelcomeController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/reading.png', // sesuaikan dengan asset kamu
-              height: 250,
-            ),
-            SizedBox(height: 30),
             Text(
               'SELAMAT DATANG !',
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 30,
                 fontFamily: 'fredoka',
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF1D2951),
               ),
-              textAlign: TextAlign.center,
             ),
+            Image.asset(
+              'assets/images/reading.png', 
+              height: 250,
+            ),
+            SizedBox(height: 30),
+        
             SizedBox(height: 15),
             Text(
-              'Aplikasi Perpustakaan Online ini dirancang untuk memberikan solusi digital yang praktis dalam mengelola koleksi buku, pencarian, peminjaman, serta pengembalian secara efisien dan terintegrasi.',
+              'Aplikasi ini mempermudah pengelolaan dan peminjaman buku secara online.',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16,fontFamily: 'fredoka', color: Colors.black87),
+              style: TextStyle(fontSize: 18,fontFamily: 'nunito', color: Colors.black87),
             ),
             SizedBox(height: 30),
             ElevatedButton(
@@ -44,7 +44,7 @@ class WelcomeView extends GetView<WelcomeController> {
               onPressed: () {
                 Get.toNamed(Routes.LOGIN);
               },
-              child: Text('Mulai Sekarang!', style: TextStyle(fontSize: 16,fontFamily: 'fredoka', color: Color(0xFFF7F8FC) )),
+              child: Text('Mulai Sekarang!', style: TextStyle(fontSize: 17,fontFamily: 'fredoka', color: Color(0xFFF7F8FC) )),
             ),
           ],
         ),
